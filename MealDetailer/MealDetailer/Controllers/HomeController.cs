@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MealDetailer.Lib;
 
 namespace MealDetailer.Controllers
 {
@@ -10,6 +11,9 @@ namespace MealDetailer.Controllers
     {
         public ActionResult Index()
         {
+            XmlHelper xmlHelper = new XmlHelper();
+            xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
+
             return View();
         }
 
