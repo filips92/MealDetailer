@@ -4,15 +4,29 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.IO;
+using System.ServiceModel.Syndication;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Schema;
+using Newtonsoft.Json;
 
 namespace MealDetailer.Lib
 {
     public class XmlHelper
     {
-        public void ValidateXml(string documentToValidateUri, string validationTemplateUri)
+        public string Response { get; set; }
+        private StringBuilder StringBuilder { get; set; }
+        private bool IsValidationSuccessful { get; set; }
+
+        public XmlHelper()
         {
+            StringBuilder = new StringBuilder();
+        }
+
+        public string ValidateXml(string documentToValidateUri, string validationTemplateUri)
+        {
+            IsValidationSuccessful = true;
             // Create the XmlSchemaSet class.
             XmlSchemaSet sc = new XmlSchemaSet();
 
@@ -28,13 +42,22 @@ namespace MealDetailer.Lib
             // Create the XmlReader object.
             XmlReader reader = XmlReader.Create(documentToValidateUri, settings);
 
-            // Parse the file. 
+            // Parse the file.             
             while (reader.Read());
+
+            if (IsValidationSuccessful == true)
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(documentToValidateUri);
+                StringBuilder.Append(JsonConvert.SerializeXmlNode(doc));
+            }
+
+            return StringBuilder.ToString();
         }
         // Display any validation errors.
-        private static void ValidationCallBack(object sender, ValidationEventArgs e) {
-            Console.WriteLine("Validation Error: {0}", e.Message);
-            Debug.WriteLine("Validation Error: {0}", e.Message);
+        private void ValidationCallBack(object sender, ValidationEventArgs e) {
+            this.StringBuilder.AppendLine("Validation Error: " + e.Message);
+            IsValidationSuccessful = false;
         }
     }
 

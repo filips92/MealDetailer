@@ -13,7 +13,7 @@ namespace MealDetailer.Controllers
         {
             XmlHelper xmlHelper = new XmlHelper();
             xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
-
+            string xml = GetXml();
             return View();
         }
 
@@ -29,6 +29,14 @@ namespace MealDetailer.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public string GetXml(/*string xmlUri*/)
+        {
+            XmlHelper xmlHelper = new XmlHelper();
+            string response = xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
+
+            return response;
         }
     }
 }
