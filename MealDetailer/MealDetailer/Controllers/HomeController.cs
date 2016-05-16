@@ -11,9 +11,9 @@ namespace MealDetailer.Controllers
     {
         public ActionResult Index()
         {
-            XmlHelper xmlHelper = new XmlHelper();
-            xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
-            string xml = GetXml();
+            //XmlHelper xmlHelper = new XmlHelper();
+            //xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
+            //string xml = GetXml();
             return View();
         }
 
@@ -31,10 +31,10 @@ namespace MealDetailer.Controllers
             return View();
         }
 
-        public string GetXml(/*string xmlUri*/)
+        public string GetXml(string xmlUri)
         {
             XmlHelper xmlHelper = new XmlHelper();
-            string response = xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
+            string response = xmlHelper.ValidateXml(Server.MapPath(xmlUri), Server.MapPath("~/Resources/books.xsd"));
 
             return response;
         }
