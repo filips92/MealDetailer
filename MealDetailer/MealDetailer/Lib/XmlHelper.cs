@@ -41,7 +41,7 @@ namespace MealDetailer.Lib
 
             // Create the XmlReader object.
             XmlReader reader = XmlReader.Create(documentToValidateUri, settings);
-
+            
             // Parse the file.             
             while (reader.Read());
 

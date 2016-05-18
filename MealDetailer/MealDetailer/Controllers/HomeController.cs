@@ -3,18 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
+using System.Xml.Serialization;
 using MealDetailer.Lib;
+using Newtonsoft.Json;
 
 namespace MealDetailer.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+
+        public ActionResult Index(string id)
         {
-            //XmlHelper xmlHelper = new XmlHelper();
-            //xmlHelper.ValidateXml(Server.MapPath("~/Resources/booksSchemaFail.xml"), Server.MapPath("~/Resources/books.xsd"));
-            //string xml = GetXml();
             return View();
+        }
+
+        public ActionResult GetFoodReport()
+        {
+            var id = "01009";
+            var api = new ApiClient();
+            var report = api.GetFoodReport(id);
+            return Json(report, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult SaveReport(string contents)
+        {
+            XmlDocument reportXml = JsonConvert.DeserializeXmlNode(contents);
+            // do validation
+
+            return Json("ok");
         }
 
         public ActionResult About()

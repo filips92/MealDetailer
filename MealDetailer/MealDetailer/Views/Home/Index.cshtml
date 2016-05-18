@@ -1,6 +1,29 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+<script src="~/Scripts/app.js"></script>
+
+<div class="row" ng-app="MealDetailer" ng-controller="MainController">
+    <div class="col-xs-12">
+        {{ report.food.Name }}
+
+        <ul>
+            <li ng-repeat="singleNutrient in report.food.Nutrients">
+                {{ singleNutrient.Name }}
+                <ul>
+                    <li ng-repeat="singleMeasure in singleNutrient.Measures">
+                        {{ singleMeasure.Label }} -
+                        <input type="text" ng-model="singleMeasure.Value"/>g
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <button type="button" ng-click="save()"></button>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-12 text-center">
         <a href="Home/GetXml?xmlUri=/Resources/booksSchemaSuccess.xml" class="btn btn-success btn-lg">
