@@ -181,12 +181,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Resources\booksSchemaFail.xml" />
+    <Content Include="Resources\booksSchemaFail.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Resources\booksSchemaSuccess.xml" />
+    <Content Include="Resources\foodReport.xml" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Resources\books.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\foodReport.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

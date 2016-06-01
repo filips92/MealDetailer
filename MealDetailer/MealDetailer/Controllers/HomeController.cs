@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -15,14 +16,16 @@ namespace MealDetailer.Controllers
 
         public ActionResult Index(string id)
         {
+            XmlHelper.ValidationResult validationResult = GetXml("~/Resources/booksSchemaFail.xml", "~/Resources/books.xsd", "urn:bookstore-schema");
             return View();
         }
 
         public ActionResult GetFoodReport()
         {
-            var id = "01009";
+            /*var id = "01009";
             var api = new ApiClient();
-            var report = api.GetFoodReport(id);
+            var report = api.GetFoodReport(id);*/
+            var report = GetXml("~/Resources/foodReport.xml", "~/Resources/foodReport.xsd", "urn:foodreport-schema");
             return Json(report, JsonRequestBehavior.AllowGet);
         }
 
@@ -49,10 +52,10 @@ namespace MealDetailer.Controllers
             return View();
         }
 
-        public string GetXml(string xmlUri)
+        public XmlHelper.ValidationResult GetXml(string xmlUri, string xsdUri, string xNamespace)
         {
             XmlHelper xmlHelper = new XmlHelper();
-            string response = xmlHelper.ValidateXml(Server.MapPath(xmlUri), Server.MapPath("~/Resources/books.xsd"));
+            XmlHelper.ValidationResult response = xmlHelper.ValidateXml(Server.MapPath(xmlUri), Server.MapPath(xsdUri), xNamespace);
 
             return response;
         }

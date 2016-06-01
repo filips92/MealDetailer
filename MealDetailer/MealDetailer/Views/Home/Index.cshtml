@@ -5,22 +5,27 @@
 <script src="~/Scripts/app.js"></script>
 
 <div class="row" ng-app="MealDetailer" ng-controller="MainController">
-    <div class="col-xs-12">
+    <div class="col-xs-12" ng-show="errors">
+        <pre>
+{{ errors }}
+</pre>
+    </div>
+    <div class="col-xs-12" ng-show="!errors">
         {{ report.food.Name }}
 
         <ul>
-            <li ng-repeat="singleNutrient in report.food.Nutrients">
-                {{ singleNutrient.Name }}
+            <li ng-repeat="singleNutrient in report.food.nutrients.nutrient">
+                {{ singleNutrient['@@name'] }}
                 <ul>
-                    <li ng-repeat="singleMeasure in singleNutrient.Measures">
-                        {{ singleMeasure.Label }} -
-                        <input type="text" ng-model="singleMeasure.Value"/>g
+                    <li ng-repeat="singleMeasure in singleNutrient.measures.measure">
+                        {{ singleMeasure['@@label'] }} -
+                        <input type="text" ng-model="singleMeasure['@Html.Raw("@")value']"/>g
                     </li>
                 </ul>
             </li>
         </ul>
 
-        <button type="button" ng-click="save()"></button>
+        <button type="button" ng-click="save()">Save changes</button>
     </div>
 </div>
 

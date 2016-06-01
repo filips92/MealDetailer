@@ -1,0 +1,30 @@
+﻿<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns="urn:foodreport-schema"
+    elementFormDefault="qualified"
+    targetNamespace="urn:foodreport-schema">
+
+  <xsd:element name="report" type="reportType"/>
+
+  <xsd:complexType name="reportType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="food" type="foodType"/>
+    </xsd:sequence>
+    <xsd:attribute name="type" type="xsd:integer"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="foodType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="nutrients" type="nutrientType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="nutrientType">
+    <xsd:sequence maxOccurs="unbounded">
+      <xsd:element name="measures" type="measureType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="measureType">
+    <xsd:attribute name="eqv" type="xsd:integer"/>
+  </xsd:complexType>
+</xsd:schema>

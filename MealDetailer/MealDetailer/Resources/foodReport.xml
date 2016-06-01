@@ -1,0 +1,328 @@
+﻿<?xml version='1.0'?>
+<report type='Basic'>
+  <food ndbno='01009' name='Cheese, cheddar'>
+    <nutrients>
+      <nutrient nutrient_id='255' name='Water' unit='g' value='37.02' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='48.87' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='90.33' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='41.83' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='10.50' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='6.29' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='10.37' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='208' name='Energy' unit='kcal' value='404' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='533' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='986' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='457' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='115' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='69' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='113' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='203' name='Protein' unit='g' value='22.87' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='30.19' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='55.80' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='25.84' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='6.48' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='3.89' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='6.40' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='204' name='Total lipid (fat)' unit='g' value='33.31' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='43.97' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='81.28' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='37.64' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='9.44' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='5.66' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='9.33' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='205' name='Carbohydrate, by difference' unit='g' value='3.09' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='4.08' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='7.54' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='3.49' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.88' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.53' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.87' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='291' name='Fiber, total dietary' unit='g' value='0.0' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.0' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.0' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.0' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.0' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.0' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.0' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='269' name='Sugars, total' unit='g' value='0.48' group='Proximates'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.63' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1.17' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.54' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.14' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.08' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.13' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='301' name='Calcium, Ca' unit='mg' value='710' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='937' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1732' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='802' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='201' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='121' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='199' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='303' name='Iron, Fe' unit='mg' value='0.14' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.18' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.34' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.16' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.04' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.02' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.04' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='304' name='Magnesium, Mg' unit='mg' value='27' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='36' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='66' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='31' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='8' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='5' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='8' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='305' name='Phosphorus, P' unit='mg' value='455' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='601' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1110' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='514' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='129' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='77' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='127' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='306' name='Potassium, K' unit='mg' value='76' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='100' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='185' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='86' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='22' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='13' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='21' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='307' name='Sodium, Na' unit='mg' value='653' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='862' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1593' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='738' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='185' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='111' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='183' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='309' name='Zinc, Zn' unit='mg' value='3.64' group='Minerals'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='4.80' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='8.88' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='4.11' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='1.03' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.62' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='1.02' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='401' name='Vitamin C, total ascorbic acid' unit='mg' value='0.0' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.0' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.0' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.0' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.0' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.0' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.0' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='404' name='Thiamin' unit='mg' value='0.029' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.038' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.071' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.033' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.008' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.005' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.008' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='405' name='Riboflavin' unit='mg' value='0.428' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.565' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1.044' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.484' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.121' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.073' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.120' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='406' name='Niacin' unit='mg' value='0.059' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.078' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.144' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.067' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.017' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.010' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.017' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='415' name='Vitamin B-6' unit='mg' value='0.066' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.087' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0.161' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.075' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.019' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.011' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.018' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='435' name='Folate, DFE' unit='µg' value='27' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='36' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='66' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='31' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='8' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='5' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='8' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='418' name='Vitamin B-12' unit='µg' value='1.10' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='1.45' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='2.68' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='1.24' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.31' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.19' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.31' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='320' name='Vitamin A, RAE' unit='µg' value='330' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='436' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='805' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='373' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='94' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='56' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='92' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='318' name='Vitamin A, IU' unit='IU' value='1242' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='1639' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='3030' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='1403' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='352' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='211' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='348' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='323' name='Vitamin E (alpha-tocopherol)' unit='mg' value='0.71' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.94' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1.73' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.80' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.20' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.12' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.20' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='328' name='Vitamin D (D2 + D3)' unit='µg' value='0.6' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0.8' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='1.5' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0.7' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.2' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.1' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.2' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='324' name='Vitamin D' unit='IU' value='24' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='32' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='59' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='27' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='7' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='4' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='7' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='430' name='Vitamin K (phylloquinone)' unit='µg' value='2.4' group='Vitamins'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='3.2' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='5.9' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='2.7' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.7' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.4' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.7' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='606' name='Fatty acids, total saturated' unit='g' value='18.867' group='Lipids'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='24.904' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='46.035' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='21.320' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='5.349' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='3.207' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='5.283' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='645' name='Fatty acids, total monounsaturated' unit='g' value='9.246' group='Lipids'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='12.205' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='22.560' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='10.448' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='2.621' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='1.572' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='2.589' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='646' name='Fatty acids, total polyunsaturated' unit='g' value='1.421' group='Lipids'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='1.876' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='3.467' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='1.606' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.403' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.242' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.398' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='605' name='Fatty acids, total trans' unit='g' value='0.917' group='Lipids'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='1.210' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='2.237' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='1.036' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0.260' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0.156' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0.257' />
+        </measures>
+      </nutrient>
+      <nutrient nutrient_id='262' name='Caffeine' unit='mg' value='0' group='Other'>
+        <measures>
+          <measure label='cup, diced' eqv='132.0' qty='1.0' value='0' />
+          <measure label='cup, melted' eqv='244.0' qty='1.0' value='0' />
+          <measure label='cup, shredded' eqv='113.0' qty='1.0' value='0' />
+          <measure label='oz' eqv='28.35' qty='1.0' value='0' />
+          <measure label='cubic inch' eqv='17.0' qty='1.0' value='0' />
+          <measure label='slice (1 oz)' eqv='28.0' qty='1.0' value='0' />
+        </measures>
+      </nutrient>
+    </nutrients>
+  </food>
+  <footnotes />
+</report>

@@ -24,14 +24,14 @@ namespace MealDetailer.Lib
             StringBuilder = new StringBuilder();
         }
 
-        public string ValidateXml(string documentToValidateUri, string validationTemplateUri)
+        public ValidationResult ValidateXml(string documentToValidateUri, string validationTemplateUri, string validationSchemaNamespace)
         {
             IsValidationSuccessful = true;
             // Create the XmlSchemaSet class.
             XmlSchemaSet sc = new XmlSchemaSet();
 
             // Add the schema to the collection.
-            sc.Add("urn:bookstore-schema", validationTemplateUri);
+            sc.Add(validationSchemaNamespace, validationTemplateUri);
 
             // Set the validation settings.
             XmlReaderSettings settings = new XmlReaderSettings();
@@ -52,12 +52,22 @@ namespace MealDetailer.Lib
                 StringBuilder.Append(JsonConvert.SerializeXmlNode(doc));
             }
 
-            return StringBuilder.ToString();
+            return new ValidationResult()
+            {
+                IsValid = IsValidationSuccessful,
+                Value = StringBuilder.ToString()
+            };
         }
         // Display any validation errors.
         private void ValidationCallBack(object sender, ValidationEventArgs e) {
             this.StringBuilder.AppendLine("Validation Error: " + e.Message);
             IsValidationSuccessful = false;
+        }
+
+        public class ValidationResult
+        {
+            public string Value { get; set; }
+            public bool IsValid { get; set; }
         }
     }
 

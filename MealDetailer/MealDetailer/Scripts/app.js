@@ -2,7 +2,11 @@
 
 angular.module('MealDetailer').controller('MainController', function($scope, $http) {
     $http.get('/Home/GetFoodReport').then(function(response) {
-        $scope.report = response.data;
+        if (response.data.IsValid) {
+            $scope.report = JSON.parse(response.data.Value).report;
+        } else {
+            $scope.errors = JSON.parse(response.data.Value);
+        }
     }, function (error) {
         alert(Error);
         console.log(error);
