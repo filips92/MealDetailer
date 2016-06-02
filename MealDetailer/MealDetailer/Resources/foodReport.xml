@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0'?>
-<report type='Basic'>
+<report xmlns="urn:foodreport-schema">
   <food ndbno='01009' name='Cheese, cheddar'>
     <nutrients>
       <nutrient nutrient_id='255' name='Water' unit='g' value='37.02' group='Proximates'>

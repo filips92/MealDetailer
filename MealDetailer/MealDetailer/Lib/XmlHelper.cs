@@ -16,12 +16,12 @@ namespace MealDetailer.Lib
     public class XmlHelper
     {
         public string Response { get; set; }
-        private StringBuilder StringBuilder { get; set; }
+        private List<string> Content { get; set; }
         private bool IsValidationSuccessful { get; set; }
 
         public XmlHelper()
         {
-            StringBuilder = new StringBuilder();
+            Content = new List<string>();
         }
 
         public ValidationResult ValidateXml(string documentToValidateUri, string validationTemplateUri, string validationSchemaNamespace)
@@ -49,18 +49,18 @@ namespace MealDetailer.Lib
             {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(documentToValidateUri);
-                StringBuilder.Append(JsonConvert.SerializeXmlNode(doc));
+                Content.Add(JsonConvert.SerializeXmlNode(doc));
             }
 
             return new ValidationResult()
             {
                 IsValid = IsValidationSuccessful,
-                Value = StringBuilder.ToString()
+                Value = IsValidationSuccessful == true ? Content[0] : JsonConvert.SerializeObject(Content)
             };
         }
         // Display any validation errors.
         private void ValidationCallBack(object sender, ValidationEventArgs e) {
-            this.StringBuilder.AppendLine("Validation Error: " + e.Message);
+            this.Content.Add(e.Message);
             IsValidationSuccessful = false;
         }
 
