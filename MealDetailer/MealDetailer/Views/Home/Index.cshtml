@@ -6,11 +6,13 @@
 
 <div class="row" ng-app="MealDetailer" ng-controller="MainController">
     <div class="col-xs-12" ng-show="errors">
-        <pre>
-{{ errors }}
-</pre>
+        <ul>
+            <li ng-repeat="error in errors">
+                {{ error }}
+            </li>
+        </ul>
     </div>
-    <div class="col-xs-12" ng-show="!errors">
+    <div class="col-xs-12">
         {{ report.food.Name }}
 
         <ul>
@@ -25,11 +27,11 @@
             </li>
         </ul>
 
-        <button type="button" ng-click="save()">Save changes</button>
+        <button type="button" ng-click="save()" ng-disabled="!isValid">Save changes</button>
     </div>
 </div>
 
-<div class="row">
+@*<div class="row">
     <div class="col-xs-12 text-center">
         <a href="Home/GetXml?xmlUri=/Resources/booksSchemaSuccess.xml&xsdUri=/Resources/books.xsd" class="btn btn-success btn-lg">
             Valid file
@@ -38,4 +40,4 @@
             Invalid
         </a>
     </div>
-</div>
+</div>*@
