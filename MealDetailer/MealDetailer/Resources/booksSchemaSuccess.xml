@@ -1,0 +1,27 @@
+﻿<?xml version='1.0'?>
+<bookstore xmlns="urn:bookstore-schema">
+  <book>
+    <title>Lorem</title>
+    <author>
+      <first-name>Benjamin</first-name>
+      <last-name>Franklin</last-name>
+    </author>
+    <price>1.00</price>
+  </book>
+  <book genre="novel">
+    <title>The Confidence Man</title>
+    <author>
+      <first-name>Herman</first-name>
+      <last-name>Melville</last-name>
+    </author>
+    <price>11.99</price>
+  </book>
+  <book genre="philosophy">
+    <title>The Gorgias</title>
+    <author>
+      <first-name>Plato</first-name>
+      <last-name></last-name>
+    </author>
+    <price>9.99</price>
+  </book>
+</bookstore>
