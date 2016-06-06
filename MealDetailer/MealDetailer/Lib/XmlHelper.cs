@@ -15,23 +15,23 @@ namespace MealDetailer.Lib
 {
     public class XmlHelper
     {
-        public string Response { get; set; }
-        private StringBuilder StringBuilder { get; set; }
+        public string Report { get; set; }
+        private List<string> Errors { get; set; }
         private bool IsValidationSuccessful { get; set; }
 
         public XmlHelper()
         {
-            StringBuilder = new StringBuilder();
+            Errors = new List<string>();
         }
 
-        public string ValidateXml(string documentToValidateUri, string validationTemplateUri)
+        public ValidationResult ValidateXml(string documentToValidateUri, string validationTemplateUri, string validationSchemaNamespace)
         {
             IsValidationSuccessful = true;
             // Create the XmlSchemaSet class.
             XmlSchemaSet sc = new XmlSchemaSet();
 
             // Add the schema to the collection.
-            sc.Add("urn:bookstore-schema", validationTemplateUri);
+            sc.Add(validationSchemaNamespace, validationTemplateUri);
 
             // Set the validation settings.
             XmlReaderSettings settings = new XmlReaderSettings();
@@ -41,7 +41,7 @@ namespace MealDetailer.Lib
 
             // Create the XmlReader object.
             XmlReader reader = XmlReader.Create(documentToValidateUri, settings);
-
+            
             // Parse the file.             
             while (reader.Read());
 
@@ -49,15 +49,27 @@ namespace MealDetailer.Lib
             {
                 XmlDocument doc = new XmlDocument();
                 doc.Load(documentToValidateUri);
-                StringBuilder.Append(JsonConvert.SerializeXmlNode(doc));
+                Report = JsonConvert.SerializeXmlNode(doc);
             }
 
-            return StringBuilder.ToString();
+            return new ValidationResult()
+            {
+                IsValid = IsValidationSuccessful,
+                Report = Report,
+                Errors = Errors
+            };
         }
         // Display any validation errors.
         private void ValidationCallBack(object sender, ValidationEventArgs e) {
-            this.StringBuilder.AppendLine("Validation Error: " + e.Message);
+            this.Errors.Add(e.Message);
             IsValidationSuccessful = false;
+        }
+
+        public class ValidationResult
+        {
+            public List<String> Errors { get; set; } 
+            public string Report { get; set; }
+            public bool IsValid { get; set; }
         }
     }
 
