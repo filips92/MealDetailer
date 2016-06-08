@@ -22,33 +22,79 @@ angular.module('MealDetailer').controller('SearchController', function ($scope, 
 
 angular.module('MealDetailer').controller('MainController', function ($scope, $http, $rootScope) {
     $scope.products = [];
-
+    $scope.name = 'My dish';
     $rootScope.$on('addProduct', onAddProduct, handleError);
 
     $scope.recalculateSummary = function () {
         var result = [];
         var nutrientsAmount = $scope.products.length ? $scope.products[0].nutrients.length : 0;
+        var totalWeight = 0;
 
         for (var i = 0; i < $scope.products.length; i++) {
             var singleProduct = $scope.products[i];
+            totalWeight += parseFloat(singleProduct.weight);
+
             for (var j = 0; j < nutrientsAmount; j++) {
                 var singleNutrient = singleProduct.nutrients[j];
                 if (i === 0) {
                     result.push({
                         name: singleNutrient['@name'],
-                        amountInRecipe: 0
+                        nutrient_id: singleNutrient['@nutrient_id'],
+                        unit: singleNutrient['@unit'],
+                        group: singleNutrient['@group'],
+                        amountInRecipe: 0,
+                        amountInUnit: 0
                     });
                 }
-                result[j].amountInRecipe += parseFloat(singleNutrient['@value']) * singleProduct.weight / 100;
+                var amountInRecipe = parseFloat(singleNutrient['@value']) * parseFloat(singleProduct.weight) / 100;
+                result[j].amountInRecipe += amountInRecipe;
+                result[j].amountInUnit += amountInRecipe;
             }
         }
 
+        if (totalWeight) {
+            for (var i = 0; i < $scope.products.length; i++) {
+                result[i].amountInUnit = result[i].amountInUnit * 100 / totalWeight;
+            }
+        }
+        
         $scope.summary = result;
     }
 
     $scope.save = function () {
-        $http.post('/Home/SaveReport', $scope.report).then(function (response) {
-            alert('ok');
+        var data = {
+            report: {
+                food: {
+                    nutrients: {
+                        nutrient: []
+                    }
+                }
+            }
+        };
+
+        data.report.food['@ndbno'] = 0;
+        data.report.food['@name'] = $scope.name;
+
+        $scope.summary.forEach(function(singleNutrient) {
+            var newNutrient = {};
+            newNutrient['@nutrient_id'] = singleNutrient.nutrient_id;
+            newNutrient['@name'] = singleNutrient.name;
+            newNutrient['@unit'] = singleNutrient.unit;
+            newNutrient['@value'] = singleNutrient.amountInUnit;
+            newNutrient['@group'] = singleNutrient.group;
+
+            data.report.food.nutrients.nutrient.push(newNutrient);
+        });
+
+        $http.post('/Home/SaveReport', {
+            contents: JSON.stringify(data),
+            name: $scope.name
+        }).then(function (response) {
+            if (response.data.IsValid) {
+                alert('Splendid! Everything went well!');
+            } else {
+                $scope.errors = response.data.Errors;
+            }
         }, handleError);
     }
 

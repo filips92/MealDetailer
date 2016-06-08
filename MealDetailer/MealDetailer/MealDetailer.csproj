@@ -166,6 +166,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Lib\ApiClient.cs" />
+    <Compile Include="Lib\PathSanitizer.cs" />
     <Compile Include="Lib\Food.cs" />
     <Compile Include="Lib\XmlHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />

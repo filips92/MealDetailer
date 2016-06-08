@@ -8,7 +8,9 @@
         <ul>
             <li ng-repeat="singleResult in searchResults">
                 {{ singleResult.name }}
-                <a href="" ng-click="addProduct(singleResult.ndbno)">Add</a>
+                <button class="btn btn-default btn-xs" ng-click="addProduct(singleResult.ndbno)">
+                    +
+                </button>
             </li>
         </ul>
     </div>
@@ -20,11 +22,28 @@
                     <label>Dish name</label>
                     <input type="text" class="form-control" name="name" value="" ng-model="name" placeholder="Dish name"/>
                 </div>
-                <button class="btn btn-default" ng-click="recalculateSummary()">Recalculate</button>
+                <hr />
+                <button class="btn btn-info" ng-click="recalculateSummary()">
+                    <i class="glyphicon glyphicon-refresh"></i> Recalculate
+                </button>
+                <button class="btn btn-success" ng-disabled="!summary" ng-click="save()">
+                    Save XML, please
+                </button>
+
+                <div ng-show="errors">
+                    <p>Sir, we have some problems:</p>
+                    <ul>
+                        <li ng-repeat="singleProblem in errors">
+                            {{singleProblem}}
+                        </li>
+                    </ul>
+                </div>
+
                 <table class="table table-condensed table-striped">
                     <thead>
                         <tr>
                             <th>Nutrient name</th>
+                            <th>Amount in 100g</th>
                             <th>Amount in recipe</th>
                         </tr>
                     </thead>
@@ -32,6 +51,9 @@
                         <tr ng-repeat="singleNutrient in summary">
                             <td>
                                 {{ singleNutrient.name }}
+                            </td>
+                            <td>
+                                {{ singleNutrient.amountInUnit }}
                             </td>
                             <td>
                                 {{ singleNutrient.amountInRecipe }}

@@ -54,7 +54,7 @@ namespace MealDetailer.Lib
             {
                 try
                 {
-                    string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, MakeValidFileName(query), DateTime.Now.Ticks));
+                    string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, PathSanitizer.MakeValidFileName(query), DateTime.Now.Ticks));
                     string url = String.Format(SearchUrlBase, query);
                     string rawXmlResponse = client.DownloadString(url);
                     File.WriteAllText(tempFilePath, rawXmlResponse);
@@ -80,14 +80,6 @@ namespace MealDetailer.Lib
                 }
 
             }
-        }
-
-        private string MakeValidFileName(string name)
-        {
-            Array.ForEach(Path.GetInvalidFileNameChars(),
-                c => name = name.Replace(c.ToString(), String.Empty));
-
-            return name;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Web;
@@ -7,6 +8,7 @@ using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Serialization;
 using MealDetailer.Lib;
+using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
 
 namespace MealDetailer.Controllers
@@ -36,12 +38,17 @@ namespace MealDetailer.Controllers
         }
 
         [HttpPost]
-        public ActionResult SaveReport(string contents)
+        public ActionResult SaveReport(string name, string contents)
         {
+            String filepathBase = "~/App_Data/export_{0}_{1}.xml";
+            String sanitizedName = PathSanitizer.MakeValidFileName(name);
+            string mappedPath = Server.MapPath(String.Format(filepathBase, sanitizedName, DateTime.Now.Ticks));
             XmlDocument reportXml = JsonConvert.DeserializeXmlNode(contents);
-            // do validation
+            System.IO.File.WriteAllText(mappedPath, reportXml.OuterXml);
 
-            return Json("ok");
+            XmlHelper.ValidationResult validationResult = new XmlHelper().ValidateXml(mappedPath, Server.MapPath("~/Resources/foodReport.xsd"), "urn:foodreport-schema");
+
+            return Json(validationResult);
         }
     }
 }
