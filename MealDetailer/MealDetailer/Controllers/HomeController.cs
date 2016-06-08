@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Xml.Xsl;
 using MealDetailer.Lib;
 using Microsoft.Ajax.Utilities;
 using Newtonsoft.Json;
@@ -52,17 +53,33 @@ namespace MealDetailer.Controllers
 
             if (validationResult.IsValid)
             {
-                validationResult.Contents = String.Format("/Home/DownloadReport?path={0}", formattedPath);
+                validationResult.Contents = String.Format("/Home/PreviewReport?path={0}", formattedPath);
             }
 
             return Json(validationResult);
         }
 
-        public FileResult DownloadReport(string path)
+        public ActionResult PreviewReport(string path)
         {
-            return File(
-                Server.MapPath(path), "application/xml"
-                );
+            return Content(TransformXMLToHTML(path));
+        }
+
+        private string TransformXMLToHTML(string xmlPath)
+        {
+            String xsltString = System.IO.File.ReadAllText(Server.MapPath("~/Resources/dish.xslt"));
+            String inputXml = System.IO.File.ReadAllText(Server.MapPath(xmlPath));
+
+            XslCompiledTransform transform = new XslCompiledTransform();
+            using (XmlReader reader = XmlReader.Create(new StringReader(xsltString)))
+            {
+                transform.Load(reader);
+            }
+            StringWriter results = new StringWriter();
+            using (XmlReader reader = XmlReader.Create(new StringReader(inputXml)))
+            {
+                transform.Transform(reader, null, results);
+            }
+            return results.ToString();
         }
     }
 }

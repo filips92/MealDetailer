@@ -186,6 +186,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Resources\booksSchemaSuccess.xml" />
+    <Content Include="Resources\dish.xslt" />
     <Content Include="Resources\foodReport.xml" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\app.js" />
