@@ -42,13 +42,27 @@ namespace MealDetailer.Controllers
         {
             String filepathBase = "~/App_Data/export_{0}_{1}.xml";
             String sanitizedName = PathSanitizer.MakeValidFileName(name);
-            string mappedPath = Server.MapPath(String.Format(filepathBase, sanitizedName, DateTime.Now.Ticks));
+            String token = DateTime.Now.Ticks.ToString();
+            String formattedPath = String.Format(filepathBase, sanitizedName, token);
+            string mappedPath = Server.MapPath(formattedPath);
             XmlDocument reportXml = JsonConvert.DeserializeXmlNode(contents);
             System.IO.File.WriteAllText(mappedPath, reportXml.OuterXml);
 
             XmlHelper.ValidationResult validationResult = new XmlHelper().ValidateXml(mappedPath, Server.MapPath("~/Resources/foodReport.xsd"), "urn:foodreport-schema");
 
+            if (validationResult.IsValid)
+            {
+                validationResult.Contents = String.Format("/Home/DownloadReport?path={0}", formattedPath);
+            }
+
             return Json(validationResult);
+        }
+
+        public FileResult DownloadReport(string path)
+        {
+            return File(
+                Server.MapPath(path), "application/xml"
+                );
         }
     }
 }

@@ -53,7 +53,7 @@ angular.module('MealDetailer').controller('MainController', function ($scope, $h
         }
 
         if (totalWeight) {
-            for (var i = 0; i < $scope.products.length; i++) {
+            for (var i = 0; i < nutrientsAmount; i++) {
                 result[i].amountInUnit = result[i].amountInUnit * 100 / totalWeight;
             }
         }
@@ -91,7 +91,7 @@ angular.module('MealDetailer').controller('MainController', function ($scope, $h
             name: $scope.name
         }).then(function (response) {
             if (response.data.IsValid) {
-                alert('Splendid! Everything went well!');
+                location.href = response.data.Contents;
             } else {
                 $scope.errors = response.data.Errors;
             }
