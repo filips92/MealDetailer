@@ -18,10 +18,10 @@ namespace MealDetailer.Lib
 
         private string SearchUrlBase =
             "http://api.nal.usda.gov/ndb/search/?format=xml&q={0}&max=25&offset=0&api_key=DEMO_KEY";
-        private string ReportFilePathBase = "~/App_Data/{0}.xml";
+        private string ReportFilePathBase = "~/App_Data/report_{0}_{1}.xml";
         private string ReportXSDFilePath = "~/Resources/foodReport.xsd";
         private string ReportXSDNamespace = "urn:foodreport-schema";
-        private string SearchFilePathBase = "~/App_Data/search_{0}.xml";
+        private string SearchFilePathBase = "~/App_Data/search_{0}_{1}.xml";
         private string SearchXSDFilePath = "~/Resources/search.xsd";
         private string SearchXSDNamespace = "urn:search-schema";
 
@@ -34,7 +34,7 @@ namespace MealDetailer.Lib
         {
             using (WebClient client = new WebClient())
             {
-                string tempFilePath = httpContext.Server.MapPath(String.Format(ReportFilePathBase, id));
+                string tempFilePath = httpContext.Server.MapPath(String.Format(ReportFilePathBase, id, DateTime.Now.Ticks));
                 string url = String.Format(FoodReportUrlBase, id);
                 string rawXmlResponse = client.DownloadString(url);
                 File.WriteAllText(tempFilePath, rawXmlResponse);
@@ -54,7 +54,7 @@ namespace MealDetailer.Lib
             {
                 try
                 {
-                    string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, MakeValidFileName(query)));
+                    string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, MakeValidFileName(query), DateTime.Now.Ticks));
                     string url = String.Format(SearchUrlBase, query);
                     string rawXmlResponse = client.DownloadString(url);
                     File.WriteAllText(tempFilePath, rawXmlResponse);
@@ -84,11 +84,10 @@ namespace MealDetailer.Lib
 
         private string MakeValidFileName(string name)
         {
-            string invalidChars = new string(Path.GetInvalidFileNameChars());
-            string escapedInvalidChars = Regex.Escape(name);
-            string invalidRegex = string.Format(@"([{0}]*\.+$)|([{0}]+)", escapedInvalidChars);
+            Array.ForEach(Path.GetInvalidFileNameChars(),
+                c => name = name.Replace(c.ToString(), String.Empty));
 
-            return Regex.Replace(name, invalidRegex, "_");
+            return name;
         }
     }
 }

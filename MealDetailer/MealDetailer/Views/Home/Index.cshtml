@@ -4,11 +4,19 @@
 
 <div class="row">
     <div class="col-xs-4" ng-controller="SearchController">
-        <input type="search" name="query" ng-model="query" ng-model-options="{debounce: 1000}" ng-change="doSearch()" />
+        <input type="text" name="query" ng-model="query" ng-model-options="{debounce: 1000}" ng-change="doSearch()" />
         <ul>
             <li ng-repeat="singleResult in searchResults">
                 {{ singleResult.name }}
                 <a href="" ng-click="addProduct(singleResult.ndbno)">Add</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="col-xs-8" ng-controller="MainController">
+        <ul>
+            <li ng-repeat="singleProduct in products">
+                {{ singleProduct.food['@@name'] }}
             </li>
         </ul>
     </div>
