@@ -16,16 +16,14 @@ namespace MealDetailer.Controllers
 
         public ActionResult Index(string id)
         {
-            XmlHelper.ValidationResult validationResult = GetXml("~/Resources/booksSchemaFail.xml", "~/Resources/books.xsd", "urn:bookstore-schema");
             return View();
         }
 
-        public ActionResult GetFoodReport()
+        public ActionResult GetFoodReport(string id = "01009")
         {
-            /*var id = "01009";
-            var api = new ApiClient();
-            var report = api.GetFoodReport(id);*/
-            var report = GetXml("~/Resources/foodReport.xml", "~/Resources/foodReport.xsd", "urn:foodreport-schema");
+            ApiClient api = new ApiClient();
+            XmlHelper.ValidationResult report = api.GetFoodReport(id, System.Web.HttpContext.Current);
+
             return Json(report, JsonRequestBehavior.AllowGet);
         }
 
