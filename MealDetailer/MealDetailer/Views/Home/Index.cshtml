@@ -14,21 +14,44 @@
     </div>
 
     <div class="col-xs-8" ng-controller="MainController">
-        <input type="text" class="form-control" name="name" value="" ng-model="name" placeholder="Dish name" />
-        <hr />
         <uib-tabset active="active">
-            <uib-tab index="$index" ng-repeat="singleProduct in products" heading="{{singleProduct.name}}">
+            <uib-tab index="0" heading="Summary">
+                <div class="form-group">
+                    <label>Dish name</label>
+                    <input type="text" class="form-control" name="name" value="" ng-model="name" placeholder="Dish name"/>
+                </div>
+                <button class="btn btn-default" ng-click="recalculateSummary()">Recalculate</button>
+                <table class="table table-condensed table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nutrient name</th>
+                            <th>Amount in recipe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="singleNutrient in summary">
+                            <td>
+                                {{ singleNutrient.name }}
+                            </td>
+                            <td>
+                                {{ singleNutrient.amountInRecipe }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </uib-tab>
+            <uib-tab index="$index + 1" ng-repeat="singleProduct in products" heading="{{singleProduct.name}}">
                 <div class="form-group">
                     <label>Amount needed in recipe [g/ml]</label>
                     <input type="text" ng-model="singleProduct.weight" class="form-control" />
                 </div>
                 <table class="table table-striped table-condensed">
                     <thead>
-                    <tr>
-                        <th>Nutrient name</th>
-                        <th>Amount per 100g</th>
-                        <th>Amount in recipe</th>
-                    </tr>
+                        <tr>
+                            <th>Nutrient name</th>
+                            <th>Amount per 100g</th>
+                            <th>Amount in recipe</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="singleNutrient in singleProduct.nutrients">
