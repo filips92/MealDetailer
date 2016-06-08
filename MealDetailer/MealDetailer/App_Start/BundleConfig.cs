@@ -29,8 +29,8 @@ namespace MealDetailer
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                 "~/Scripts/angular.js",
-                "~/Scripts/ui-bootstrap-tpls.js",
                 "~/Scripts/ui-bootstrap.js",
+                "~/Scripts/ui-bootstrap-tpls.js",
                 "~/Scripts/app.js"
                 ));
         }
