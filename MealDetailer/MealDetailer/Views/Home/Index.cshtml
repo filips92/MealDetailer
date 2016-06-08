@@ -2,40 +2,53 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="row" ng-app="MealDetailer" ng-controller="MainController">
-    <div class="col-xs-12" ng-show="errors">
+<div class="row">
+    <div class="col-xs-4" ng-controller="SearchController">
+        <input type="search" name="query" ng-model="query" ng-model-options="{debounce: 1000}" ng-change="doSearch()" />
         <ul>
-            <li ng-repeat="error in errors">
-                {{ error }}
+            <li ng-repeat="singleResult in searchResults">
+                {{ singleResult.name }}
+                <a href="" ng-click="addProduct(singleResult.ndbno)">Add</a>
             </li>
         </ul>
-    </div>
-    <div class="col-xs-12">
-        {{ report.food.Name }}
-
-        <ul>
-            <li ng-repeat="singleNutrient in report.food.nutrients.nutrient">
-                {{ singleNutrient['@@name'] }}
-                <ul>
-                    <li ng-repeat="singleMeasure in singleNutrient.measures.measure">
-                        {{ singleMeasure['@@label'] }} -
-                        <input type="text" ng-model="singleMeasure['@Html.Raw("@")value']"/>g
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <button type="button" ng-click="save()" ng-disabled="!isValid">Save changes</button>
     </div>
 </div>
 
+
+@*<div class="row" ng-app="MealDetailer" ng-controller="MainController">
+        <div class="col-xs-12" ng-show="errors">
+            <ul>
+                <li ng-repeat="error in errors">
+                    {{ error }}
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12">
+            {{ report.food.Name }}
+
+            <ul>
+                <li ng-repeat="singleNutrient in report.food.nutrients.nutrient">
+                    {{ singleNutrient['@@name'] }}
+                    <ul>
+                        <li ng-repeat="singleMeasure in singleNutrient.measures.measure">
+                            {{ singleMeasure['@@label'] }} -
+                            <input type="text" ng-model="singleMeasure['@Html.Raw("@")value']"/>g
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <button type="button" ng-click="save()" ng-disabled="!isValid">Save changes</button>
+        </div>
+    </div>*@
+
 @*<div class="row">
-    <div class="col-xs-12 text-center">
-        <a href="Home/GetXml?xmlUri=/Resources/booksSchemaSuccess.xml&xsdUri=/Resources/books.xsd" class="btn btn-success btn-lg">
-            Valid file
-        </a>
-        <a href="Home/GetXml?xmlUri=/Resources/booksSchemaFail.xml&xsdUri=/Resources/books.xsd" class="btn btn-danger btn-lg">
-            Invalid
-        </a>
-    </div>
-</div>*@
+        <div class="col-xs-12 text-center">
+            <a href="Home/GetXml?xmlUri=/Resources/booksSchemaSuccess.xml&xsdUri=/Resources/books.xsd" class="btn btn-success btn-lg">
+                Valid file
+            </a>
+            <a href="Home/GetXml?xmlUri=/Resources/booksSchemaFail.xml&xsdUri=/Resources/books.xsd" class="btn btn-danger btn-lg">
+                Invalid
+            </a>
+        </div>
+    </div>*@

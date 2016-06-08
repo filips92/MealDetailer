@@ -52,17 +52,33 @@ namespace MealDetailer.Lib
         {
             using (WebClient client = new WebClient())
             {
-                string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, MakeValidFileName(query)));
-                string url = String.Format(SearchUrlBase, query);
-                string rawXmlResponse = client.DownloadString(url);
-                File.WriteAllText(tempFilePath, rawXmlResponse);
-                XmlHelper xmlHelper = new XmlHelper();
-                XmlHelper.ValidationResult response = xmlHelper.ValidateXml(
-                    tempFilePath,
-                    httpContext.Server.MapPath(SearchXSDFilePath),
-                    SearchXSDNamespace
-                );
-                return response;
+                try
+                {
+                    string tempFilePath = httpContext.Server.MapPath(String.Format(SearchFilePathBase, MakeValidFileName(query)));
+                    string url = String.Format(SearchUrlBase, query);
+                    string rawXmlResponse = client.DownloadString(url);
+                    File.WriteAllText(tempFilePath, rawXmlResponse);
+                    XmlHelper xmlHelper = new XmlHelper();
+                    XmlHelper.ValidationResult response = xmlHelper.ValidateXml(
+                        tempFilePath,
+                        httpContext.Server.MapPath(SearchXSDFilePath),
+                        SearchXSDNamespace
+                    );
+                    return response;
+                }
+                catch (System.Net.WebException)
+                {
+                    return new XmlHelper.ValidationResult()
+                    {
+                        Errors = new List<string>()
+                        {
+                            "Nothing found"
+                        },
+                        IsValid = false,
+                        Contents = ""
+                    };
+                }
+
             }
         }
 

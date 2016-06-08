@@ -27,6 +27,14 @@ namespace MealDetailer.Controllers
             return Json(report, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult QueryDatabase(string query = "butter")
+        {
+            ApiClient api = new ApiClient();
+            XmlHelper.ValidationResult searchResult = api.Search(query, System.Web.HttpContext.Current);
+
+            return Json(searchResult, JsonRequestBehavior.AllowGet);
+        }
+
         [HttpPost]
         public ActionResult SaveReport(string contents)
         {
@@ -34,28 +42,6 @@ namespace MealDetailer.Controllers
             // do validation
 
             return Json("ok");
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public XmlHelper.ValidationResult GetXml(string xmlUri, string xsdUri, string xNamespace)
-        {
-            XmlHelper xmlHelper = new XmlHelper();
-            XmlHelper.ValidationResult response = xmlHelper.ValidateXml(Server.MapPath(xmlUri), Server.MapPath(xsdUri), xNamespace);
-
-            return response;
         }
     }
 }
