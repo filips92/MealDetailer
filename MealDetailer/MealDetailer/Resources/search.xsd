@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:search-schema"  xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="group"/>
+              <xs:element type="xs:string" name="name"/>
+              <xs:element type="xs:int" name="ndbno"/>
+            </xs:sequence>
+            <xs:attribute type="xs:byte" name="offset" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:string" name="q"/>
+      <xs:attribute type="xs:byte" name="start"/>
+      <xs:attribute type="xs:byte" name="end"/>
+      <xs:attribute type="xs:byte" name="total"/>
+      <xs:attribute type="xs:string" name="sort"/>
+      <xs:attribute type="xs:string" name="group"/>
+      <xs:attribute type="xs:byte" name="sr"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

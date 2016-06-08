@@ -3,7 +3,7 @@
 angular.module('MealDetailer').controller('MainController', function($scope, $http) {
     $http.get('/Home/GetFoodReport').then(function (response) {
         var parsedResponse = response.data;
-        $scope.report = parsedResponse.Report === null ? null : JSON.parse(parsedResponse.Report).report;
+        $scope.report = parsedResponse.Contents === null ? null : JSON.parse(parsedResponse.Contents).report;
         $scope.errors = parsedResponse.Errors;
         $scope.isValid = parsedResponse.IsValid;
     }, function (error) {

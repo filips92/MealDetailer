@@ -55,7 +55,7 @@ namespace MealDetailer.Lib
             return new ValidationResult()
             {
                 IsValid = IsValidationSuccessful,
-                Report = Report,
+                Contents = Report,
                 Errors = Errors
             };
         }
@@ -68,7 +68,7 @@ namespace MealDetailer.Lib
         public class ValidationResult
         {
             public List<String> Errors { get; set; } 
-            public string Report { get; set; }
+            public string Contents { get; set; }
             public bool IsValid { get; set; }
         }
     }

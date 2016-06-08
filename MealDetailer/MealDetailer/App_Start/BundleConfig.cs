@@ -26,6 +26,13 @@ namespace MealDetailer
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                "~/Scripts/angular.js",
+                "~/Scripts/ui-bootstrap-tpls.js",
+                "~/Scripts/ui-bootstrap.js",
+                "~/Scripts/app.js"
+                ));
         }
     }
 }
