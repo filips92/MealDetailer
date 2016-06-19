@@ -20,10 +20,10 @@ namespace MealDetailer.Lib
             "http://api.nal.usda.gov/ndb/search/?format=xml&q={0}&max=25&offset=0&api_key=DEMO_KEY";
         private string ReportFilePathBase = "~/App_Data/report_{0}_{1}.xml";
         private string ReportXSDFilePath = "~/Resources/foodReport.xsd";
-        private string ReportXSDNamespace = "urn:foodreport-schema";
+        private string ReportXSDNamespace = "";
         private string SearchFilePathBase = "~/App_Data/search_{0}_{1}.xml";
         private string SearchXSDFilePath = "~/Resources/search.xsd";
-        private string SearchXSDNamespace = "urn:search-schema";
+        private string SearchXSDNamespace = "";
 
         public ApiClient()
         {

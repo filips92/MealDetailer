@@ -36,6 +36,7 @@ namespace MealDetailer.Lib
             // Set the validation settings.
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.ValidationType = ValidationType.Schema;
+            settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
             settings.Schemas = sc;
             settings.ValidationEventHandler += new ValidationEventHandler (ValidationCallBack);
 

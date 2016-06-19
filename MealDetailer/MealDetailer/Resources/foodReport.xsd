@@ -1,4 +1,5 @@
-﻿<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:foodreport-schema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="report">
     <xs:complexType>
       <xs:sequence>
@@ -8,45 +9,42 @@
               <xs:element name="nutrients">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element name="nutrient" maxOccurs="unbounded" minOccurs="0">
+                    <xs:element maxOccurs="unbounded" name="nutrient">
                       <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="measures">
+                          <xs:element name="measures" minOccurs="0">
                             <xs:complexType>
                               <xs:sequence>
-                                <xs:element name="measure" maxOccurs="unbounded" minOccurs="0">
+                                <xs:element name="measure">
                                   <xs:complexType>
-                                    <xs:simpleContent>
-                                      <xs:extension base="xs:string">
-                                        <xs:attribute type="xs:string" name="label" use="optional"/>
-                                        <xs:attribute type="xs:float" name="eqv" use="optional"/>
-                                        <xs:attribute type="xs:float" name="qty" use="optional"/>
-                                        <xs:attribute type="xs:float" name="value" use="optional"/>
-                                      </xs:extension>
-                                    </xs:simpleContent>
+                                    <xs:attribute name="label" type="xs:string" use="required" />
+                                    <xs:attribute name="eqv" type="xs:decimal" use="required" />
+                                    <xs:attribute name="qty" type="xs:decimal" use="required" />
+                                    <xs:attribute name="value" type="xs:decimal" use="required" />
                                   </xs:complexType>
                                 </xs:element>
                               </xs:sequence>
                             </xs:complexType>
                           </xs:element>
                         </xs:sequence>
-                        <xs:attribute type="xs:short" name="nutrient_id" use="optional" />
-                        <xs:attribute type="xs:string" name="name" use="optional"/>
-                        <xs:attribute type="xs:string" name="unit" use="optional"/>
-                        <xs:attribute type="xs:float" name="value" use="optional"/>
-                        <xs:attribute type="xs:string" name="group" use="optional"/>
+                        <xs:attribute name="nutrient_id" type="xs:unsignedShort" use="required" />
+                        <xs:attribute name="name" type="xs:string" use="required" />
+                        <xs:attribute name="unit" type="xs:string" use="required" />
+                        <xs:attribute name="value" type="xs:decimal" use="required" />
+                        <xs:attribute name="group" type="xs:string" use="required" />
                       </xs:complexType>
                     </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
-            <xs:attribute type="xs:short" name="ndbno"/>
-            <xs:attribute type="xs:string" name="name"/>
+            <xs:attribute name="ndbno" type="xs:unsignedShort" use="required" />
+            <xs:attribute name="name" type="xs:string" use="required" />
           </xs:complexType>
         </xs:element>
-        <xs:element type="xs:string" name="footnotes"/>
+        <xs:element name="footnotes"  minOccurs="0"/>
       </xs:sequence>
+      <xs:attribute name="type" type="xs:string" use="optional" />
     </xs:complexType>
   </xs:element>
 </xs:schema>
