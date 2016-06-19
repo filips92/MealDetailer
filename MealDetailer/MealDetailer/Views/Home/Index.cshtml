@@ -33,7 +33,7 @@
                 <div ng-show="errors">
                     <p>Sir, we have some problems:</p>
                     <ul>
-                        <li ng-repeat="singleProblem in errors">
+                        <li ng-repeat="singleProblem in errors track by $index">
                             {{singleProblem}}
                         </li>
                     </ul>
