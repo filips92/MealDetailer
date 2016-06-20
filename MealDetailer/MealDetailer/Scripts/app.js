@@ -32,24 +32,29 @@ angular.module('MealDetailer').controller('MainController', function ($scope, $h
 
         for (var i = 0; i < $scope.products.length; i++) {
             var singleProduct = $scope.products[i];
-            totalWeight += parseFloat(singleProduct.weight);
+            if (singleProduct) {
+            
+                totalWeight += parseFloat(singleProduct.weight);
 
-            for (var j = 0; j < nutrientsAmount; j++) {
-                var singleNutrient = singleProduct.nutrients[j];
-                if (i === 0) {
-                    result.push({
-                        name: singleNutrient['@name'],
-                        nutrient_id: singleNutrient['@nutrient_id'],
-                        unit: singleNutrient['@unit'],
-                        group: singleNutrient['@group'],
-                        amountInRecipe: 0,
-                        amountInUnit: 0
-                    });
+                for (var j = 0; j < nutrientsAmount; j++) {
+                    var singleNutrient = singleProduct.nutrients[j];
+                    if (i === 0) {
+                        result.push({
+                            name: singleNutrient['@name'],
+                            nutrient_id: singleNutrient['@nutrient_id'],
+                            unit: singleNutrient['@unit'],
+                            group: singleNutrient['@group'],
+                            amountInRecipe: 0,
+                            amountInUnit: 0
+                        });
+                    }
+                    var amountInRecipe = parseFloat(singleNutrient['@value']) * parseFloat(singleProduct.weight) / 100;
+                    result[j].amountInRecipe += amountInRecipe;
+                    result[j].amountInUnit += amountInRecipe;
                 }
-                var amountInRecipe = parseFloat(singleNutrient['@value']) * parseFloat(singleProduct.weight) / 100;
-                result[j].amountInRecipe += amountInRecipe;
-                result[j].amountInUnit += amountInRecipe;
+
             }
+            
         }
 
         if (totalWeight) {
