@@ -4,7 +4,7 @@
   <xsd:element name="test">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="dupa" />
+        <xsd:element name="bar" />
       </xsd:sequence>
       <xsd:attribute name="foo" type="xsd:float" use="required"></xsd:attribute>
     </xsd:complexType>
