@@ -48,7 +48,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="singleNutrient in summary">
+                        <tr ng-repeat="singleNutrient in summary track by $index">
                             <td>
                                 {{ singleNutrient.name }}
                             </td>
@@ -62,7 +62,7 @@
                     </tbody>
                 </table>
             </uib-tab>
-            <uib-tab index="$index + 1" ng-repeat="singleProduct in products" heading="{{singleProduct.name}}">
+            <uib-tab index="$index + 1" ng-repeat="singleProduct in products track by $index" heading="{{singleProduct.name}}">
                 <div class="form-group">
                     <label>Amount needed in recipe [g/ml]</label>
                     <input type="text" ng-model="singleProduct.weight" class="form-control" />
@@ -76,7 +76,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="singleNutrient in singleProduct.nutrients">
+                        <tr ng-repeat="singleNutrient in singleProduct.nutrients track by $index">
                             <td>
                                 {{ singleNutrient['@@name'] }}
                             </td>

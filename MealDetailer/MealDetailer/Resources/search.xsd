@@ -10,17 +10,17 @@
               <xs:element type="xs:string" name="name"/>
               <xs:element type="xs:int" name="ndbno"/>
             </xs:sequence>
-            <xs:attribute type="xs:byte" name="offset" use="optional"/>
+            <xs:attribute type="xs:int" name="offset" use="optional"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>
       <xs:attribute type="xs:string" name="q"/>
-      <xs:attribute type="xs:byte" name="start"/>
-      <xs:attribute type="xs:byte" name="end"/>
-      <xs:attribute type="xs:byte" name="total"/>
+      <xs:attribute type="xs:int" name="start"/>
+      <xs:attribute type="xs:int" name="end"/>
+      <xs:attribute type="xs:int" name="total"/>
       <xs:attribute type="xs:string" name="sort"/>
       <xs:attribute type="xs:string" name="group"/>
-      <xs:attribute type="xs:byte" name="sr"/>
+      <xs:attribute type="xs:int" name="sr"/>
     </xs:complexType>
   </xs:element>
 </xs:schema>
